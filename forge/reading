@@ -1,0 +1,45 @@
+## GitHub & Blog
+
+- https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering
+
+    从Context Engineering（CE）的角度来说，CC的设计是重Harness的，即 设计策略-把约束形式化到harness上
+    这个repo重在方法论设计，里面涉及到CE的skill并非是Harness运行时调用的组件（也就是说CE策略是harness设计好的，而非运行时去参考这些skill）
+
+---
+- https://www.humanlayer.dev/blog/writing-a-good-claude-md
+
+    关于CLAUDE.md写法：放通用信息/随项目更新，指针优于副本，Stop Hook（formatter/linter）
+---
+- https://www.openhands.dev/blog/evaluating-agent-skills
+
+    **Do not assume a skill is helping just because it exists. Measure it.**
+
+---
+- https://www.openhands.dev/blog/openhands-context-condensensation-for-more-efficient-ai-agents
+
+    保留最近几轮原始对话，压缩更早历史，和CC不一样（全量压缩，存最近轮次）
+
+---
+- https://www.openhands.dev/blog/20260305-learning-to-verify-ai-generated-code
+
+    trajectory-level verifier（critic model），关注一下rubrics这个概念
+
+---
+- https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+
+    system prompt: 
+    1. 组织提示词为不同部分（如## 工具指南、## 输出描述等），使用XML标记或Markdown标题来划分区域
+    2. 先以最小提示词测试最佳可用模型，再基于失败案例添加清晰的指令和示例
+    工具集必须最小化
+    few-shot prompting
+    上下文策略：just-in-time, 多用原语检索
+    Structured Note-taking / Agentic Memory: 任务清单/NOTES.md 将笔记写入上下文窗口之外的持久化内存，然后在后续时间将笔记拉回上下文窗口 （知识库）
+
+---
+- https://www.humanlayer.dev/blog/context-efficient-backpressure
+
+    怎么处理tool result? （在进入context之前）
+    run_silent()函数：成功简洁提示，失败打印完整日志
+    failFast: 遇到失败第一时间停下
+    用grep，sed，awk，cut等工具过滤输出
+

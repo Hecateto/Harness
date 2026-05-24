@@ -1,0 +1,22 @@
+## 阶段性总结
+
+#### 05/24
+
+总结一下原则:
+1. 一般来说，对于交付物保留结果，抛弃过程
+2. 要区分高低熵内容，可通过简单的复用或推理重复获取的只要保留触发器（例如tool-use，只要保留命令；进一步的还能对命令压缩），否则选择性保留（一些状态信息）
+3. 确保结构化格式，区分冷热存储（比如前文提到的tool-call, 一些硬事实/结果可以用KV存储，还可以引入附件(CC)，NOTES.md 知识库等等）
+4. 压缩比，压缩阈值策略，token budget的设置很重要；CC是通过统计学分布来设置的
+5. 分流注入（例如CLAUDE/AGENTS.MD, system prompt, working message...）, 不同part的更新频率不一样，同时能复用cache
+6. 多设置hook硬约束（例如verification, evaluation等，还有针对tool result进入上下文前的清洗）
+7. 摘要prompt的设计/摘要模型的选择 参考CC Design 
+8. 使用即时检索策略，多用工具原语检索
+
+*参考：*v2, cc design, github & blog**
+
+
+前沿方向：harness self-evolving；设计**利好收集trace/利好训练**的harness，和模型做联合后训练
+有待调研的方向：skill in harness, ...
+有待调研的角度：memory的设计/提取/检索策略
+
+---
